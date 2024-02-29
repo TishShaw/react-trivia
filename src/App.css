@@ -68,3 +68,34 @@
 	border: 2px solid black;
 	cursor: pointer;
 }
+
+.info-icon {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-right: 20px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+.info-head {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.info-head button {
+	margin-left: 20px;
+	margin-top: 20px;
+	padding: 10px 20px;
+	background-color: black;
+	color: white;
+	font-size: 18px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
