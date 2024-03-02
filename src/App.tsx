@@ -12,6 +12,7 @@ function App() {
 	const [showGame, setShowGame] = useState(false);
 	const [hideGameOptions, setHideGameOptions] = useState(false);
 	const [showEndGame, setShowEndGame] = useState(false);
+	const [highestScore, setHighestScore] = useState(0);
 	const [score, setScore] = useState(0);
 
 	return (
@@ -60,8 +61,8 @@ function App() {
 							setShowEndGame={setShowEndGame}
 							setHideGameOptions={setHideGameOptions}
 							setScore={setScore}
-							score={score}
 							showInfo={showInfo}
+							setHighestScore={setHighestScore}
 						/>
 					)}
 					{showEndGame && (
@@ -71,6 +72,7 @@ function App() {
 							setShowEndGame={setShowEndGame}
 							setHideGameOptions={setHideGameOptions}
 							showInfo={showInfo}
+							highestScore={highestScore}
 						/>
 					)}
 				</div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { triviaData } from '../triviaData';
 
 interface GameProps {
@@ -7,7 +7,7 @@ interface GameProps {
 	setShowEndGame: (show: boolean) => void;
 	setHideGameOptions: (hide: boolean) => void;
 	setScore: (score: number) => void;
-	score: number;
+	setHighestScore: (score: number) => void;
 	showInfo: boolean;
 }
 
@@ -17,12 +17,12 @@ function Game({
 	setHideGameOptions,
 	setShowEndGame,
 	setScore,
-	score,
+	setHighestScore,
 	showInfo,
 }: GameProps) {
 	const [idx, setIdx] = useState(0);
 
-	const [selectedAnswer, setSelectedAnswer] = useState<String[]>([]);
+	const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
 	const currentQuestion = triviaData
 		.filter((cat) => cat.category === selectedCategory)
@@ -30,13 +30,13 @@ function Game({
 
 	const handleNextQuestion = () => {
 		const correctAnswer = currentQuestion[0]?.questions[idx]?.answer;
-		const isCorrect = selectedAnswer.includes(correctAnswer);
+		const isCorrect = selectedAnswer === correctAnswer; // Compare selected answer with correct answer
 		if (isCorrect) {
 			setScore((prev: number) => prev + 10);
 		}
 		if (idx + 1 !== currentQuestion[0]?.questions?.length) {
 			setIdx((prev) => prev + 1);
-			setSelectedAnswer([]);
+			setSelectedAnswer(null);
 		} else {
 			setShowGame(false);
 			setShowEndGame(true);
@@ -52,16 +52,15 @@ function Game({
 	};
 
 	const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const { value, checked } = e.target;
-
-		if (checked) {
-			setSelectedAnswer([...selectedAnswer, value]);
-		} else {
-			setSelectedAnswer(selectedAnswer.filter((ans) => ans !== value));
-		}
+		const { value } = e.target;
+		setSelectedAnswer(value);
 	};
 
-	console.log(score);
+	const overallScore = currentQuestion[0]?.questions.length * 10;
+
+	useEffect(() => {
+		setHighestScore(overallScore);
+	}, []);
 
 	if (!showInfo)
 		return (
@@ -80,7 +79,7 @@ function Game({
 											type='checkbox'
 											value={choice}
 											onChange={handleCheckboxChange}
-											checked={selectedAnswer.includes(choice)}
+											checked={selectedAnswer === choice}
 										/>
 										<label>{choice}</label>
 									</div>

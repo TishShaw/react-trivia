@@ -4,6 +4,7 @@ interface Props {
 	setShowEndGame: (show: boolean) => void;
 	setHideGameOptions: (hide: boolean) => void;
 	showInfo: boolean;
+	highestScore: number;
 }
 
 function EndGame({
@@ -12,6 +13,7 @@ function EndGame({
 	setShowEndGame,
 	setHideGameOptions,
 	showInfo,
+	highestScore,
 }: Props) {
 	const restartGame = () => {
 		setShowEndGame(false);
@@ -22,7 +24,7 @@ function EndGame({
 		return (
 			<div className='endGame-container'>
 				<div className='endGame-container'>
-					<p className='endGame-highScore'>Highest score: 100</p>
+					<p className='endGame-highScore'>Highest score: {highestScore}</p>
 					<p className='endGame-score'> Your score: {score}</p>
 				</div>
 				<p onClick={restartGame} className='endGame-restart'>
