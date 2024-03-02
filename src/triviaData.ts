@@ -127,35 +127,20 @@ export const triviaData = [
 			{
 				question:
 					'I am an odd number. Take away one letter, and I become even. What number am I?',
-				answer: "Seven (take away the 's', it becomes 'even')",
-				choices: [
-					'Five',
-					"Seven (take away the 's', it becomes 'even')",
-					'Nine',
-					'Eleven',
-				],
+				answer: 'Seven',
+				choices: ['Five', 'Seven', 'Nine', 'Eleven'],
 			},
 			{
 				question:
 					'If there are three apples and you take away two, how many apples do you have?',
-				answer: 'Two (you took two apples, so you have them)',
-				choices: [
-					'One',
-					'Two (you took two apples, so you have them)',
-					'Three',
-					'Zero',
-				],
+				answer: 'Two',
+				choices: ['One', 'Two', 'Three', 'Zero'],
 			},
 			{
 				question:
 					'I am an even number. Take away one letter, and I become odd. What number am I?',
-				answer: "Seven (take away the 's', it becomes 'even')",
-				choices: [
-					'Six',
-					"Seven (take away the 's', it becomes 'even')",
-					'Eight',
-					'Ten',
-				],
+				answer: 'Seven',
+				choices: ['Six', 'Seven', 'Eight', 'Ten'],
 			},
 			{
 				question: "What has a heart that doesn't beat?",
@@ -194,12 +179,11 @@ export const triviaData = [
 			{
 				question:
 					'A man gave one son 10 cents and another son was given 15 cents. What time is it?',
-				answer:
-					"Time to go to bed (sons are given 'cents' to indicate it's bedtime)",
+				answer: 'Time to go to bed',
 				choices: [
 					'Time for lunch',
 					'Time to wake up',
-					"Time to go to bed (sons are given 'cents' to indicate it's bedtime)",
+					'Time to go to bed',
 					'Time to play',
 				],
 			},
