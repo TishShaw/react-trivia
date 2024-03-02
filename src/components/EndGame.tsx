@@ -17,12 +17,14 @@ function EndGame({
 		setScore(0);
 	};
 	return (
-		<div>
-			<div>
-				<p className=''>Highest score: 100</p>
-				<p>Your score: {score}</p>
+		<div className='endGame-container'>
+			<div className='endGame-container'>
+				<p className='endGame-highScore'>Highest score: 100</p>
+				<p className='endGame-score'> Your score: {score}</p>
 			</div>
-			<p onClick={restartGame}>Play again</p>
+			<p onClick={restartGame} className='endGame-restart'>
+				Play again
+			</p>
 		</div>
 	);
 }
