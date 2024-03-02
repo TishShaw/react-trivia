@@ -61,6 +61,7 @@ function App() {
 							setHideGameOptions={setHideGameOptions}
 							setScore={setScore}
 							score={score}
+							showInfo={showInfo}
 						/>
 					)}
 					{showEndGame && (
@@ -69,6 +70,7 @@ function App() {
 							setScore={setScore}
 							setShowEndGame={setShowEndGame}
 							setHideGameOptions={setHideGameOptions}
+							showInfo={showInfo}
 						/>
 					)}
 				</div>
