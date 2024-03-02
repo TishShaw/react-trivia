@@ -4,12 +4,15 @@ import { useState } from 'react';
 import HowToPlay from './components/HowToPlay';
 import Game from './components/Game';
 import './App.css';
+import EndGame from './components/EndGame';
 
 function App() {
 	const [showInfo, setShowInfo] = useState(false);
 	const [selectedCategory, setSelectedCategory] = useState('');
 	const [showGame, setShowGame] = useState(false);
 	const [hideGameOptions, setHideGameOptions] = useState(false);
+	const [showEndGame, setShowEndGame] = useState(false);
+	const [score, setScore] = useState(0);
 
 	return (
 		<div className='home-container'>
@@ -50,7 +53,24 @@ function App() {
 						<HowToPlay showInfo={showInfo} setShowInfo={setShowInfo} />
 					)}
 
-					{showGame && <Game selectedCategory={selectedCategory} />}
+					{showGame && (
+						<Game
+							selectedCategory={selectedCategory}
+							setShowGame={setShowGame}
+							setShowEndGame={setShowEndGame}
+							setHideGameOptions={setHideGameOptions}
+							setScore={setScore}
+							score={score}
+						/>
+					)}
+					{showEndGame && (
+						<EndGame
+							score={score}
+							setScore={setScore}
+							setShowEndGame={setShowEndGame}
+							setHideGameOptions={setHideGameOptions}
+						/>
+					)}
 				</div>
 			</div>
 		</div>
