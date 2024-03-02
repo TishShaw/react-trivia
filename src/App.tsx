@@ -29,7 +29,7 @@ function App() {
 							/>
 							<h1 className='home-title'>Mind Mystery Trivia Game</h1>
 							{!hideGameOptions && (
-								<div className=''>
+								<div className='category-container'>
 									<p className='home-subtitle'>Choose a category:</p>
 									<div className='category-choices'>
 										{triviaData.map((cat, index) => (
