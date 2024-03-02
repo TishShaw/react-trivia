@@ -27,7 +27,7 @@ function App() {
 								className='info-icon'
 								onClick={() => setShowInfo(!showInfo)}
 							/>
-							<h1 className='home-title'>Mind Mystery Riddles</h1>
+							<h1 className='home-title'>Mind Mystery Trivia Game</h1>
 							{!hideGameOptions && (
 								<div className=''>
 									<p className='home-subtitle'>Choose a category:</p>
